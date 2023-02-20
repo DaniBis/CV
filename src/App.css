@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  content: "";
+  position: fixed;
+  background: url(../src/images/backgroundImg.png) top right no-repeat;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+}
+
+:root {
+  --blue-violet: #4b3d8f;
+  --green: #37a987;
+  --purple: #b7b1d2;
+}
+
+
+
