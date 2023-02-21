@@ -51,7 +51,7 @@ class Navbar extends React.PureComponent {
         </NavBarToggle>
         <MainNav display={this.state.displayNav}>
           <NavLi>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/CV">Home</NavLink>
           </NavLi>
           <NavLi>
             <NavLink to="/About">About</NavLink>
