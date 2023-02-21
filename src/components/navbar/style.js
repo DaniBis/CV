@@ -16,6 +16,7 @@ export const Bar = styled.nav`
   @media (max-width: 968px) {
     display: inherit;
     width: 100%;
+    padding: 0;
   }
 `;
 export const MainNav = styled.ul`

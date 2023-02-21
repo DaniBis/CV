@@ -20,7 +20,7 @@ export default function Home() {
             <ContactSection>
                 <ContactImg>
                     <img src={linkedIn} />
-                    <h3><a href="https://www.linkedin.com/in/daniel-bisceanu-37977711a/" >Linked In</a></h3>
+                    <h3><a href="https://www.linkedin.com/in/daniel-bisceanu-37977711a/" target="_blank">Linked In</a></h3>
                 </ContactImg>
                 <ContactImg>
                     <img src={email} />
