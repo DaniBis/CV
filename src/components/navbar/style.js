@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export const Bar = styled.nav`
   font-size: 18px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 10px;
   @media (min-width: 768px) {
     display: flex;
@@ -23,7 +22,7 @@ export const MainNav = styled.ul`
   list-style-type: none;
   display: ${(props) => props.display};
   width: 100%;
-  color: #FFF;
+  color: #1d2230;
   padding:0;
   flex-direction: column;
   @media (min-width: 768px) {
@@ -43,7 +42,7 @@ export const NavLink = styled(Link)`
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  color:#00b4ff;
+  color:#ff2a00;
   text-decoration: none;
   @media (min-width: 768px) {
     margin: 0px 10px;

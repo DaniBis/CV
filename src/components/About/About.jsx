@@ -1,9 +1,11 @@
 import Navbar from './../navbar/navbar';
-import { Name, MenuBar, IntroSection,Placeholder, Body, Input, Wrapper, SkillsSection, HalfSection, SkillBar, AboutBody, MenuBarBackground, HobbySection, Hobbies } from './style';
-import laptop from './../../images/laptopT.png';
+import { Name, MenuBar, IntroSection,Placeholder, Body, Input, Wrapper, SkillsSection, HalfSection, SkillBar, AboutBody, MenuBarBackground, ProjectSection, Projects, IndividualSkill, Portrait, IntroParagraph, GroupItemsSkill, AboutSkill, AboutFooter } from './style';
 import ProgressBar from "./../ProgressBar/ProgressBar";
+import imageIcons from '../../images';
+import Contact from "../Contact/Contact";
 
 import React, { useState, useEffect, useRef } from 'react';
+
 
 var TxtType = function(el, toRotate, period) {
     this.toRotate = toRotate;
@@ -20,31 +22,35 @@ TxtType.prototype.tick = function() {
     var fullTxt = this.toRotate[i];
 
     if (this.isDeleting) {
-    this.txt = fullTxt.substring(0, this.txt.length - 1);
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
     } else {
-    this.txt = fullTxt.substring(0, this.txt.length + 1);
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
     }
 
-    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
 
     var that = this;
     var delta = 200 - Math.random() * 100;
 
-    if (this.isDeleting) { delta /= 2; }
-
-    if (!this.isDeleting && this.txt === fullTxt) {
-    delta = this.period;
-    this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
-    this.isDeleting = false;
-    this.loopNum++;
-    delta = 500;
+    if (this.isDeleting) {
+        delta = 2000;
     }
 
-    setTimeout(function() {
-    that.tick();
-    }, delta);
+    if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+    }
+
+    requestAnimationFrame(function() {
+        that.tick();
+    });
 };
+
+
 
 export default function About() {
     useEffect(() => {
@@ -67,102 +73,126 @@ export default function About() {
         <AboutBody>
             <MenuBarBackground>
             <MenuBar>
-                <Name>Daniel</Name>
+                <Name>
+                    <Portrait />
+                </Name>
                 <Navbar />
             </MenuBar>
             </MenuBarBackground>
             <IntroSection>
                 <HalfSection>
                     <div>
-                        <h1 style={{color: '#ff2a00'}}> Who am I?</h1>
-                    </div>
-                    <div>
-                        <img src={laptop} />
+                        <img src={imageIcons.laptop} />
                         <div>
-                            <h1>
-                                <a href="" class="typewrite" data-period="2000" data-type='[ "Hi, I am Daniel", "I am Creative", "I love Design", "I love to Develop" ]'>
-                                    <span class="wrap"></span>
+                            <h2>
+                                <a href="" className="typewrite" data-period="4000" data-type='[ "Hi, I am Daniel", "I am Creative", "I love Design", "I love to Develop" ]'>
+                                    <span className="wrap"></span>
                                 </a>
-                            </h1>
+                            </h2>
                         </div>
                     </div>
-                </HalfSection>
-                <HalfSection>
-                    <h1 style={{color: '#00b4ff'}}> Front-end Developer</h1>
-                    <p style={{color: 'white', textAlign: 'initial', marginLeft: '3vw'}}>As a highly motivated and eager Front-End Developer, I am excited to bring my passion for creating visually appealing and user-friendly websites to your team. With a strong background in HTML, CSS, and JavaScript, I have a solid foundation in web development and a keen eye for design. While I may not have professional experience in the field, I have always been passionate about web development and have been continuously honing my skills through various projects and online resources. I am a quick learner and thrive in fast-paced environments. I am confident that my passion, dedication, and willingness to continuously learn and adapt will make me a valuable asset to your team.</p>
                     <br />
                     <br />
                     <br />
-                    <a style={{color: 'yellow', textDecoration: 'none'}} href="https://github.com/DaniBis?tab=repositories">⚡ Check out my GitHub ⚡</a>
                 </HalfSection>
             </IntroSection>
-            <HalfSection>
+            <IntroParagraph>
+                    <h1> Front-end Developer</h1>
+                    <p style={{color: '#FFF', textAlign: 'initial', marginLeft: '3vw', letterSpacing: '1px'}}>As a highly motivated and eager Front-End Developer, I am excited to bring my passion for creating visually appealing and user-friendly websites to your team. With a strong background in HTML, CSS, and JavaScript, I have a solid foundation in web development and a keen eye for design. While I may not have professional experience in the field, I have always been passionate about web development and have been continuously honing my skills through various projects and online resources. I am a quick learner and thrive in fast-paced environments. I am confident that my passion, dedication, and willingness to continuously learn and adapt will make me a valuable asset to your team.</p>
+            </IntroParagraph>
+            <AboutSkill>
                 <h2>Skills</h2>
-            </HalfSection>
             <SkillsSection>
-                <HalfSection>
-                    <SkillBar>
-                        <span>REACT.JS</span>  
-                        <ProgressBar value ="70" />
-                    </SkillBar>
-                    <SkillBar>
-                        <span>NODE.JS</span>  
-                        <ProgressBar value ="30" />
-                    </SkillBar>
-                    <SkillBar>
-                        <span>VERSION CONTROL (GIT)</span>  
-                        <ProgressBar value ="100" />
-                    </SkillBar>
-                    <SkillBar>
-                        <span>JAVASCRIPT</span>  
-                        <ProgressBar value ="90" />
-                    </SkillBar>
-                    <SkillBar>
-                        <span>SQL</span>  
-                        <ProgressBar value ="50" />
-                    </SkillBar>
-                </HalfSection>
-
-                <HalfSection>
-                    <SkillBar>
-                        <span>CSS</span>  
-                        <ProgressBar value ="100" />
-                    </SkillBar>
-                    <SkillBar>
-                        <span>SASS</span>  
-                        <ProgressBar value ="80" />
-                    </SkillBar>
-                    <SkillBar>
-                        <span>STYLED-COMPONENTS</span>  
-                        <ProgressBar value ="100" />
-                    </SkillBar>
-                    <SkillBar>
-                        <span>HTML</span>  
-                        <ProgressBar value ="100" />
-                    </SkillBar>
-                    <SkillBar>
-                        <span>MATERIAL.UI</span>  
-                        <ProgressBar value ="90" />
-                    </SkillBar>
-                </HalfSection>
+                <IndividualSkill>
+                  <GroupItemsSkill>
+                    <img src={imageIcons.html} />
+                    <label>HTML</label>
+                  </GroupItemsSkill>
+                </IndividualSkill>
+                <IndividualSkill>
+                <GroupItemsSkill>
+                   <img src={imageIcons.javascript} />
+                   <label>Javascript</label>
+                   </GroupItemsSkill>
+                </IndividualSkill>
+                <IndividualSkill>
+                <GroupItemsSkill>
+                   <img src={imageIcons.css} />
+                   <label>CSS</label>
+                   </GroupItemsSkill>
+                </IndividualSkill>
+                <IndividualSkill>
+                <GroupItemsSkill>
+                   <img src={imageIcons.react} />
+                   <label>ReactJS</label>
+                   </GroupItemsSkill>
+                </IndividualSkill>
+                <IndividualSkill>
+                <GroupItemsSkill>
+                   <img src={imageIcons.database} />
+                   <label>Database</label>
+                   </GroupItemsSkill>
+                </IndividualSkill>
+                <IndividualSkill>
+                <GroupItemsSkill>
+                   <img src={imageIcons.nodejs} />
+                   <label>NodeJS</label>
+                   </GroupItemsSkill>
+                </IndividualSkill>
+                <IndividualSkill>
+                   <GroupItemsSkill>
+                    <img src={imageIcons.github} />
+                    <label>Github</label>
+                   </GroupItemsSkill>
+                </IndividualSkill>
+                <IndividualSkill>
+                <GroupItemsSkill>
+                   <img src={imageIcons.boostrap} />
+                   <label>Bootstrap</label>
+                   </GroupItemsSkill>
+                </IndividualSkill>
           </SkillsSection>
-          <HalfSection>
-                <h2>Hobbies</h2>
-          </HalfSection>
-          <HobbySection>
+          </AboutSkill>
+          <ProjectSection>
+            <h1>Projects</h1>
+            <a style={{color: '#ff2a00', textDecoration: 'none', fontWeight: 'bold'}} href="https://github.com/DaniBis?tab=repositories">⚡ Check out my GitHub ⚡</a>
+            <HalfSection>
+                <Projects>
+                     <div>
+                        <h4>3DCompare, UK </h4>
+                        <h1>Platform, Build</h1> <br />
+                        <label> Html | Javascript | Bootstrap | CSS </label>
+                     </div>
+                     <img src={imageIcons.Compare} />
+                </Projects>
+            </HalfSection>
              <HalfSection>
-                <Hobbies>Self-Development</Hobbies>
+                <Projects>
+                     <div>
+                        <h4>Apollo Active, Vietnam </h4>
+                        <h1>Dashboard, Build</h1> <br />
+                        <label> Html | Javascript | Bootstrap | Firebase </label>
+                     </div>
+                     <img src={imageIcons.apollo} />
+                </Projects>
+            </HalfSection>
+            <HalfSection>
+                <Projects> 
+                     <div>   
+                        <h4>Hamsa, Vietnam</h4>
+                        <h1>Landing Page, Build</h1> <br />
+                        <label> Javascript | WordPress | NodeJS | Firebase </label>
+                     </div>
+                     <img src={imageIcons.hamsa} />
+                </Projects>
              </HalfSection>
-             <HalfSection>
-                 <Hobbies>Design</Hobbies>
-             </HalfSection>
-             <HalfSection>
-                 <Hobbies>Teaching</Hobbies>
-             </HalfSection>
-             <HalfSection>
-                 <Hobbies>Workout</Hobbies>
-             </HalfSection>
-          </HobbySection>
+          </ProjectSection>
+          <AboutFooter>
+            <HalfSection>
+                <h1><a href="/Contact">Let's talk! </a></h1>
+                <h5>If you need to develop a web application fully responsive with a touch of creativity feel free to reach out to me. </h5>
+            </HalfSection>
+          </AboutFooter>
         </AboutBody>
         )
 }

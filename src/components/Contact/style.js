@@ -7,10 +7,10 @@ margin: 80px auto;
 padding: 50px 30px;
 border: 3px solid #333;
 background-color: rgba(2,2,2,.5);
-color: #00b4ff;
+color: #FFF;
 & > h3 > a {
     text-decoration: none;
-    color: #00b4ff;
+    color: #FFF;
 }
 & > img {
     width: 100px;
@@ -19,6 +19,6 @@ color: #00b4ff;
 }
 `;
 
-export const ContactSection= styled.div`
+export const ContactSection = styled.div`
 
 `
